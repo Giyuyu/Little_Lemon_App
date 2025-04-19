@@ -1,38 +1,679 @@
-.App {
+body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Navigation Styles */
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #98FBCB;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: top 0.3s ease;
+  justify-content: center;
+}
+
+.nav-hidden {
+  top: -100px;
+}
+
+.nav-visible {
+  top: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f4ce14;
+}
+
+nav {
+  background-color: #98FBCB;
+  /* Soft green background */
+  padding: 10px 20px;
+  /* Padding for spacing */
+  display: flex;
+  /* Use Flexbox for layout */
+  justify-content: center;
+  /* Center the content in the navbar */
+  align-items: center;
+  /* Vertically center the items */
+  gap: 20px;
+  /* Add space between the logo and links */
+}
+
+.logo-container {
+  display: flex;
+  /* Ensure the logo aligns properly */
+  justify-content: center;
+  /* Center the logo inside its container */
+}
+
+.logo {
+  height: 40px;
+  /* Set the logo height */
+}
+
+nav ul {
+  list-style-type: none;
+  /* Remove bullet points */
+  display: flex;
+  /* Use Flexbox for alignment */
+  justify-content: center;
+  /* Center the navigation links */
+  align-items: center;
+  /* Vertically center the links */
+}
+
+nav ul li {
+  margin: 0 15px;
+  /* Space out the list items */
+}
+
+nav ul li a {
+  color: #333;
+  /* Dark color for text (contrast well with green) */
+  text-decoration: none;
+  /* Remove underline */
+  font-weight: bold;
+  /* Bold text */
+  font-size: 1.2rem;
+  /* Set a reasonable font size */
+  transition: color 0.3s ease;
+  /* Smooth transition for hover effect */
+}
+
+nav ul li a:hover {
+  color: #FF7F50;
+  /* Change color to orange on hover */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    /* Stack the navigation items vertically */
+    align-items: flex-start;
+    /* Align items to the left */
+  }
+
+  nav ul {
+    flex-direction: column;
+    /* Stack the nav items vertically */
+    align-items: flex-start;
+    /* Align items to the left */
+    width: 100%;
+    /* Ensure ul takes full width */
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    /* Space out the items vertically */
+  }
+}
+
+/* Wrapper for Hero Section Background */
+.hero-wrapper {
+  background-color: #558B71;
+  /* Dark green background */
+  width: 100%;
+  /* Full width of the viewport */
+  padding: 50px 20px;
+  /* Adjusted padding */
+  display: block;
+  /* Ensure it takes full width */
+}
+
+/* Flex container for Hero content */
+.hero {
+  display: flex;
+  justify-content: center;
+  /* Center everything horizontally */
+  align-items: center;
+  /* Align content vertically */
+  max-width: 1200px;
+  /* Limit max width to keep content centered */
+  margin: 0 auto;
+  /* Center the entire hero section */
+  padding: 0 20px;
+  /* Added some padding */
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+  /* Align text to left */
+  margin-right: 30px;
+  /* Reduced margin to bring text closer to the center */
+  max-width: 600px;
+  /* Limit the width to prevent text from stretching */
+  color: #f4ce14;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-text .country {
+  font-size: 1.5rem;
+  color: #ddd;
+  /* Slightly lighter color for contrast */
+  margin-bottom: 20px;
+}
+
+.hero-text .description {
+  font-size: 1rem;
+  color: #ddd;
+  /* Lighter text for description */
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.hero-text .reserve-btn {
+  background-color: #f4ce14;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.hero-text .reserve-btn:hover {
+  background-color: #444;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  /* Align the image to the left */
+  padding-left: 20px;
+  /* Added some space to move the image closer to the center */
+  width: 315px;
+  height: 500px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  /* Adjust image width as needed */
+  border-radius: 10px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 20px;
+    /* Adjust padding for smaller screens */
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-right: 0;
+    max-width: 100%;
+    /* Allow text to take full width on smaller screens */
+  }
+
+  .hero-image {
+    margin-top: 30px;
+    justify-content: center;
+    padding-left: 0;
+    /* No padding on smaller screens */
+  }
+
+  .hero-image img {
+    max-width: 90%;
+    /* Ensure image stays responsive */
+  }
+}
+
+/* Highlights Design Section */
+.highlights-section {
+  background-color: #bfffed;
+  padding: 60px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.highlights-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.highlights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 16px;
+  padding: 0 10px;
+  max-width: 1200px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.highlights-header h2 {
+  font-size: 3rem;
+  color: #333;
+}
+
+.menu-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  padding: 15px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: #555;
+}
+
+
+.specials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
+  margin-top: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+  /* Optional: adds spacing on small screens */
+}
+
+.special-card {
+  background-color: #7fcfab;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.special-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.special-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.special-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.special-card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.text-block {
+  flex-grow: 1;
+}
+
+.title-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.title-price h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #4caf50;
+}
+
+.order-link {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 175px;
+  /* Controls space between text and icon */
+}
+
+.order-link a {
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.order-link a:hover {
+  text-decoration: underline;
+}
+
+.order-link img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background-color: #558B71;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-size: 2rem;
+  color: #bfffed;
+  margin-bottom: 40px;
+}
+
+.testimonial-card {
+  background-color: #7fcfab;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: -90px;
+  /* Pull the card down into the About section */
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  /* Slightly stronger shadow for overlap effect */
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+  z-index: 3;
+}
+
+.testimonial {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  min-height: 280px;
+  /* Ensures equal height for all testimonials */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.testimonial .quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: auto;
+  /* Pushes content down if needed */
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.customer-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.customer-info h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+.customer-info .role {
+  font-size: 0.95rem;
+  color: #777;
+  margin: 0;
+}
+
+.rating {
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 8px;
+}
+
+/* About Section */
+.about-section {
+  background-color: #bfffed;
+  padding: 150px 30px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 4rem;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.about-text p {
+  font-size: 1.5rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.about-subheader {
+  font-size: 2rem;
+  color: #888;
+  margin-top: -12px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  left: 100px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image-stack {
+  position: relative;
+  width: max-content;
+}
+
+.img-main {
+  width: 300px;
+  /* Control the width */
+  height: 350px;
+  /* Set height independently */
+  object-fit: cover;
+  /* This controls how the image fills the space */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.img-front {
+  position: absolute;
+  top: 50px;
+  /* Adjust top positioning to reveal more of the back image */
+  right: 150px;
+  /* Adjust left to move the front image closer to the right */
+  width: 300px;
+  /* Width of the second image */
+  height: 350px;
+  /* Height of the second image */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+/* Footer Section */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-logo img {
+  width: 200px;
+  height: 300px;
+}
+
+.footer-nav,
+.footer-contact,
+.footer-social {
+  min-width: 150px;
+}
+
+.footer-nav h4,
+.footer-contact h4,
+.footer-social h4 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #bfffed;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 8px;
+}
+
+.footer-nav a,
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover,
+.footer-contact a:hover {
+  color: #bfffed;
+}
+
+.footer-contact p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  color: #bfffed;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.footer-copyright {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #bfffed;
+}
+
+.footer-copyright a {
+  color: #f4ce14;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-copyright a:hover {
+  text-decoration: underline;
+}
+
+/* Add this to your CSS file to adjust icon size, hover effect, or any other style */
+.social-icon {
+  width: 30px;
+  /* Adjust size */
+  height: 30px;
+  margin: 0 10px;
+  transition: fill 0.3s ease;
+}
+
+.social-icon:hover {
+  fill: #ff6347;
+  /* Change color on hover */
 }
